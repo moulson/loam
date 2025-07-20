@@ -33,7 +33,7 @@ for start in tqdm(range(1, max_id + 1, batch_size)):
                    SUM(ST_Area(parks.geog)) AS total_area
             FROM postcodes p
             JOIN parks
-              ON ST_DWithin(p.location, parks.geog, 500)
+              ON ST_DWithin(p.location, parks.geog, 1500)
             WHERE p.id BETWEEN %s AND %s
             GROUP BY p.id
         ) sub
